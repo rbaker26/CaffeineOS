@@ -7,8 +7,8 @@ When I say "fueled by caffeine", I literally mean caffeine, not some new OS buil
 
 *****************************************************************************************************************************
 
-Captain's Log:
-3/2/2020 1658 PST
+Captain's Log:  
+3/2/2020 1658 PST  
 Right now I have a bootable kernal.  It does nothing but print out the OS Name.
 So far I have followed totorials, but very few cover anything past this point.  None I found use C++, only C.
 
