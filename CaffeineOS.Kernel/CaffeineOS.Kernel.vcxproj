@@ -98,6 +98,10 @@
     <None Include="linker.ld" />
     <None Include="loader.s" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="allocator.h" />
+    <ClInclude Include="kernel.h" />
+  </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

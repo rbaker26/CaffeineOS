@@ -163,7 +163,6 @@ extern "C" void callConstructors()
 }
 
 
-
 extern "C"
 void display_banner()
 {
