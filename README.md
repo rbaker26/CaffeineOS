@@ -6,19 +6,20 @@ When I say "fueled by caffeine", I literally mean caffeine, not some new OS buil
 
 ## Getting Started
 I am running this project in Ubuntu18.04 LTS.
-The following are the packages I installed to get this project going:
+The following are the packages I installed in the order I installed them to get this project going:
  * g++
- * clang++
+ * clang
  * make
  * gcc-multilib
  * g++-multilib
  * virtualbox-qt
- * vvalgrind
+ * valgrind
  * xorriso
 
 *****************************************************************************************************************************
 
-Progress Log:  
+## Progress Log  
+
 3/2/2020 1658 PST  
 Right now I have a bootable kernal.  It does nothing but print out the OS Name.
 So far I have followed totorials, but very few cover anything past this point.  None I found use C++, only C.
