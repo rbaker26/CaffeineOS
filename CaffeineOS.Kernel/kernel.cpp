@@ -29,11 +29,13 @@
 
 #include <cstdint>
 #include <cstddef>
+#include "multiboot.h"
 #include "kernel.h"
 
 //*************************************************************************
 // Console Output
 //*************************************************************************
+
 enum vga_color {
 	VGA_COLOR_BLACK = 0,
 	VGA_COLOR_BLUE = 1,
@@ -113,12 +115,12 @@ void terminal_putchar(char c)
 	{
 		++terminal_row;
 		terminal_column = -1;
-		c = NULL;
+		c = '\0';
 	}
 	else if (c == '\t')
 	{
 		terminal_column += 5;
-		c = NULL;
+		c = '\0';
 
 	}
 	//*******************************************************
@@ -146,6 +148,90 @@ void terminal_writestring(const char* data)
 	terminal_write(data, strlen(data));
 }
 
+
+//*************************************************************************
+// printf() 
+//*************************************************************************
+void _printf(const char* s)
+{
+	terminal_writestring(s);
+}
+void _printf(char c)
+{
+	char buf[2] = { 0 };
+	buf[0] = c;
+	_printf(buf);
+	buf[0] = 0;
+}
+
+
+void _printf(int i)
+{
+	if (i > 0)
+	{
+		int count = 0;
+		int temp = i;
+		while (i >> 10)
+			count++;
+
+		
+		char buf[11];
+		_atoi(i, buf, count);
+	}
+	else if (i < 0)
+	{
+		
+	}
+	else if (i == 0)
+	{
+		_printf('0');
+	}
+	else
+	{
+		_printf("NaN");
+	}
+}
+//*************************************************************************
+
+char _atoi(int i)
+{
+	char map[10] = { '0', '1','2','3','4','5','6','7','8','9' };
+	if (i < 0 || i > 9)
+		return '\0';
+	return map[i];
+}
+int _atoi(char c) 
+{
+	int i = (char)c - 48;
+	if (i < 0 || i > 9)
+		return '\0';
+	return i;
+}
+
+void _atoi(int i, char* buf, int size)
+{
+	if (size > 11)
+		return;
+	char buf_rev[11] = { 0 };
+	int temp = 0;
+	for (int index = 0; index < size; index++)
+	{
+		temp = i % 10;
+		buf_rev[index] = _atoi(temp);
+
+		i -= temp;
+		i /= 10;
+	}
+
+	int rev_index = 0;
+	for (int index = size - 1; index >= 0; index--)
+	{
+		buf[rev_index] = buf_rev[index];
+		rev_index++;
+	}
+	buf[rev_index] = '\0';
+
+}
 //*************************************************************************
 
 
@@ -163,7 +249,7 @@ extern "C" void callConstructors()
 }
 
 
-extern "C"
+
 void display_banner()
 {
 	terminal_writestring("************************************************************ \n");
@@ -177,14 +263,84 @@ void display_banner()
 	terminal_writestring("* cc Bob Baker 2020                                        * \n");
 	terminal_writestring("************************************************************ \n");
 }
-void kernelMain(void* multiboot_structure, uint32_t magicnumber)
+
+//char getchar()
+//{
+//	uint16_t* terminal_ibuffer = (uint16_t*)0xB8000;// todo find correct irq number
+//}
+
+//extern "C" void kernelMain(multiboot_info_t* mbd, uint32_t magicnumber)
+void detect_memory(const multiboot_info_t * mbd, multiboot_uint32_t& lo_mem_size, multiboot_uint32_t & hi_mem_size)
+{
+	// saftey check always not zero???
+	if (true/*mbd->flags == 0*/)
+	{
+		multiboot_uint32_t lo_mem_size = mbd->mem_lower;
+		multiboot_uint32_t hi_mem_size = mbd->mem_upper;
+	}
+
+}
+
+
+void print_config(const multiboot_info_t * mbd)
+{
+	terminal_writestring("\n");
+	terminal_writestring("************************************************************ \n");
+	terminal_writestring("* Config                                                   * \n");
+	terminal_writestring("************************************************************ \n");
+	terminal_writestring("* Boot Loader: ");
+	terminal_writestring((const char*)mbd->boot_loader_name);
+	terminal_writestring("                       *\n");
+	terminal_writestring("*                                                          *\n");
+	multiboot_uint32_t lo_mem_size, hi_mem_size;
+	detect_memory(mbd, lo_mem_size, hi_mem_size);
+
+
+	terminal_writestring("* RAM Detected:                                            *\n");
+	char buf[11];
+	terminal_writestring("*   Lower Memory: ");
+	_atoi(lo_mem_size, buf, 8);
+	terminal_writestring(buf);
+	terminal_writestring(" kibibytes                       *\n");
+
+	char buf2[11];
+	terminal_writestring("*   Upper Memory: ");
+	_atoi(hi_mem_size, buf2, 8);
+	terminal_writestring(buf2);
+	terminal_writestring(" kibibytes                       *\n");
+
+
+	char buf3[11];
+	multiboot_uint32_t total_mem_size = lo_mem_size + hi_mem_size;
+	terminal_writestring("*   Total Memory: ");
+	_atoi(total_mem_size, buf3, 8);
+	terminal_writestring(buf3);
+	terminal_writestring(" kibibytes                       *\n");
+	terminal_writestring("************************************************************ \n");
+
+
+}
+
+
+extern "C"
+void kernelMain(multiboot_info_t* mbd, uint32_t magicnumber)
 {
 	/* Initialize terminal interface */
 	terminal_initialize();
 	terminal_setcolor(vga_color::VGA_COLOR_WHITE);
 	display_banner();
 
+	//terminal_writestring((const char*)mbd->mmap_length);
+	//_printf(251);
 
+
+	multiboot_uint32_t lo_mem_size, hi_mem_size;
+
+
+	detect_memory(mbd, lo_mem_size,hi_mem_size);
+
+
+	print_config(mbd);
 
 
 

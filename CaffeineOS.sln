@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CaffeineOS.Kernel", "CaffeineOS.Kernel\CaffeineOS.Kernel.vcxproj", "{F8275E52-03A3-463E-89C0-C0B31AA6F1A2}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sandbox", "sandbox\sandbox.vcxproj", "{01EE5E85-AC3B-4D54-A181-429D7649CCA5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
@@ -41,6 +43,18 @@ Global
 		{F8275E52-03A3-463E-89C0-C0B31AA6F1A2}.Release|x86.ActiveCfg = Release|x86
 		{F8275E52-03A3-463E-89C0-C0B31AA6F1A2}.Release|x86.Build.0 = Release|x86
 		{F8275E52-03A3-463E-89C0-C0B31AA6F1A2}.Release|x86.Deploy.0 = Release|x86
+		{01EE5E85-AC3B-4D54-A181-429D7649CCA5}.Debug|ARM.ActiveCfg = Debug|Win32
+		{01EE5E85-AC3B-4D54-A181-429D7649CCA5}.Debug|ARM64.ActiveCfg = Debug|Win32
+		{01EE5E85-AC3B-4D54-A181-429D7649CCA5}.Debug|x64.ActiveCfg = Debug|x64
+		{01EE5E85-AC3B-4D54-A181-429D7649CCA5}.Debug|x64.Build.0 = Debug|x64
+		{01EE5E85-AC3B-4D54-A181-429D7649CCA5}.Debug|x86.ActiveCfg = Debug|Win32
+		{01EE5E85-AC3B-4D54-A181-429D7649CCA5}.Debug|x86.Build.0 = Debug|Win32
+		{01EE5E85-AC3B-4D54-A181-429D7649CCA5}.Release|ARM.ActiveCfg = Release|Win32
+		{01EE5E85-AC3B-4D54-A181-429D7649CCA5}.Release|ARM64.ActiveCfg = Release|Win32
+		{01EE5E85-AC3B-4D54-A181-429D7649CCA5}.Release|x64.ActiveCfg = Release|x64
+		{01EE5E85-AC3B-4D54-A181-429D7649CCA5}.Release|x64.Build.0 = Release|x64
+		{01EE5E85-AC3B-4D54-A181-429D7649CCA5}.Release|x86.ActiveCfg = Release|Win32
+		{01EE5E85-AC3B-4D54-A181-429D7649CCA5}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

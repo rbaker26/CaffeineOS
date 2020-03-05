@@ -101,6 +101,7 @@
   <ItemGroup>
     <ClInclude Include="allocator.h" />
     <ClInclude Include="kernel.h" />
+    <ClInclude Include="multiboot.h" />
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
