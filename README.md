@@ -33,7 +33,9 @@ My guess is dynamic memory.
 Currently I am achiving output using a VGA address to write text to the screen.  I haven't figured out input yet.
 As I said, tutorials dont really get past the bootable "Hello World" OS.
 
-
+  
+  
+  
 Stardate 3/4/2020 2121 PST   
 I have detected the RAM and got values that make sence (low mem ~= 640KB, low+hi ~=512MB), so I am really happy.
 I also was able to get a string from the bootloader by casting a uint32_t into a const char* and printing array at the pointer.
