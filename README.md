@@ -24,7 +24,7 @@ Even tho the ISO file will change with each build, the VM will always go to the 
 
 ## Progress Log  
 
-3/2/2020 1658 PST  
+###3/2/2020 1658 PST  
 Right now I have a bootable kernal.  It does nothing but print out the OS Name.
 So far I have followed totorials, but very few cover anything past this point.  None I found use C++, only C.
 
@@ -34,7 +34,7 @@ Currently I am achiving output using a VGA address to write text to the screen. 
 As I said, tutorials dont really get past the bootable "Hello World" OS.
 <br><br>
   
-Stardate 3/4/2020 2121 PST   
+###Stardate 3/4/2020 2121 PST   
 I have detected the RAM and got values that make sence (low mem ~= 640KB, low+hi ~=512MB), so I am really happy.
 I also was able to get a string from the bootloader by casting a uint32_t into a const char* and printing array at the pointer.
 I have been using the multiboot.h specification from the gnu.org site. The multiboot.h file contains emmpty struct and typedef declarations that matches the blocksizes of the info the boot loader (GRUB2.02) sends via the multiboot_info_t*.  By knowing the blocksizes, I can cast the pointers into the data I need from the bootloader.
