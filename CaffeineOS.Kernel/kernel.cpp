@@ -334,10 +334,8 @@ void kernelMain(multiboot_info_t* mbd, uint32_t magicnumber)
 	//_printf(251);
 
 
-	multiboot_uint32_t lo_mem_size, hi_mem_size;
-
-
-	detect_memory(mbd, lo_mem_size,hi_mem_size);
+	//multiboot_uint32_t lo_mem_size, hi_mem_size;
+	//detect_memory(mbd, lo_mem_size,hi_mem_size);
 
 
 	print_config(mbd);

@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="include">
+      <UniqueIdentifier>{71943425-6598-419e-95da-7a2e712f3b42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="stdlib">
+      <UniqueIdentifier>{e3fc0c88-8c43-4801-8bf1-28375d116166}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="string">
+      <UniqueIdentifier>{b44e8bdd-5cb4-42b5-8289-3e012d047e6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="stdio">
+      <UniqueIdentifier>{9f57a38d-2bca-4e59-91b6-efe4839b7b39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="arch">
+      <UniqueIdentifier>{9e603ebe-a1ad-46dd-a65c-4d0f2bd3733b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="arch\i386">
+      <UniqueIdentifier>{99126d29-2a3f-45fa-9000-e80aa45be706}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\cdefs.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\stdio.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\stdlib.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\string.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Makefile" />
+    <ClCompile Include="stdlib\abort.c">
+      <Filter>stdlib</Filter>
+    </ClCompile>
+    <ClCompile Include="string\memcmp.c">
+      <Filter>string</Filter>
+    </ClCompile>
+    <ClCompile Include="string\memcpy.c">
+      <Filter>string</Filter>
+    </ClCompile>
+    <ClCompile Include="string\memmove.c">
+      <Filter>string</Filter>
+    </ClCompile>
+    <ClCompile Include="string\memset.c">
+      <Filter>string</Filter>
+    </ClCompile>
+    <ClCompile Include="string\strlen.c">
+      <Filter>string</Filter>
+    </ClCompile>
+    <ClCompile Include="stdio\printf.c">
+      <Filter>stdio</Filter>
+    </ClCompile>
+    <ClCompile Include="stdio\putchar.c">
+      <Filter>stdio</Filter>
+    </ClCompile>
+    <ClCompile Include="stdio\puts.c">
+      <Filter>stdio</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="arch\i386\make.config">
+      <Filter>arch\i386</Filter>
+    </None>
+  </ItemGroup>
+</Project>
